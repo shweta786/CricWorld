@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_blue_dark"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp"
+        android:background="@android:color/holo_blue_dark">
+
+        <ImageView android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/cricket"
+        android:id="@+id/imageView" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_below="@+id/imageView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="cursive"
+                    android:shadowColor="#ff6cc450"
+                    android:layout_weight="0.5"
+                    android:shadowDy="-10"
+                    android:shadowRadius="15"
+                    android:text="TEAM NAME-"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/background_light"
+                    android:textColorLink="@android:color/background_light"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+
+                <EditText
+                    android:id="@+id/team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="@android:color/background_light"
+                    android:cursorVisible="true"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="textPersonName"
+                    android:textColor="@android:color/background_light"
+                    android:textColorHint="@android:color/background_light"
+                    android:textColorLink="@android:color/background_light"
+                    android:textCursorDrawable="@drawable/black_cursor" />
+
+            </LinearLayout>
+
+                  <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="cursive"
+                            android:shadowColor="#ff6cc450"
+                            android:shadowDy="-10"
+                            android:shadowRadius="15"
+                            android:text="CAPTAIN-"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textSize="20sp"
+                            android:textStyle="bold|italic" />
+
+
+                        <EditText
+                            android:id="@+id/cap"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:backgroundTint="@android:color/background_light"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:enabled="false"
+                            android:inputType="textPersonName"
+                            android:textColor="@android:color/background_light"
+                            android:textColorHint="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textCursorDrawable="@drawable/black_cursor" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="cursive"
+                            android:shadowColor="#ff6cc450"
+                            android:shadowDy="-10"
+                            android:shadowRadius="15"
+                            android:text="COACH-"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textSize="20sp"
+                            android:textStyle="bold|italic" />
+
+                        <EditText
+                            android:id="@+id/coach"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:backgroundTint="@android:color/background_light"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:enabled="false"
+                            android:inputType="textPersonName"
+                            android:textColor="@android:color/background_light"
+                            android:textColorHint="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textCursorDrawable="@drawable/black_cursor" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="cursive"
+                            android:shadowColor="#ff6cc450"
+                            android:shadowDy="-10"
+                            android:shadowRadius="15"
+                            android:text="TEST RANKING-"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textSize="20sp"
+                            android:textStyle="bold|italic" />
+
+                        <EditText
+                            android:id="@+id/tst"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:backgroundTint="@android:color/background_light"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:enabled="false"
+                            android:inputType="textPersonName"
+                            android:textColor="@android:color/background_light"
+                            android:textColorHint="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textCursorDrawable="@drawable/black_cursor" />
+
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="cursive"
+                            android:shadowColor="#ff6cc450"
+                            android:shadowDy="-10"
+                            android:shadowRadius="15"
+                            android:text="ODI RANKIING-"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textSize="20sp"
+                            android:textStyle="bold|italic" />
+
+                        <EditText
+                            android:id="@+id/odi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:backgroundTint="@android:color/background_light"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:enabled="false"
+                            android:inputType="textPersonName"
+                            android:textColor="@android:color/background_light"
+                            android:textColorHint="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textCursorDrawable="@drawable/black_cursor" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="cursive"
+                            android:shadowColor="#ff6cc450"
+                            android:shadowDy="-10"
+                            android:shadowRadius="15"
+                            android:text="T20 RANKING-"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textSize="20sp"
+                            android:textStyle="bold|italic" />
+
+                        <EditText
+                            android:id="@+id/T20"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:backgroundTint="@android:color/background_light"
+                            android:cursorVisible="true"
+                            android:ems="10"
+                            android:enabled="false"
+                            android:inputType="textPersonName"
+                            android:textColor="@android:color/background_light"
+                            android:textColorHint="@android:color/background_light"
+                            android:textColorLink="@android:color/background_light"
+                            android:textCursorDrawable="@drawable/black_cursor" />
+
+                    </TableRow>
+
+                   </TableLayout>
+
+                <Button
+                    android:id="@+id/edit"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_centerHorizontal="false"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/darker_gray"
+                    android:shadowColor="#ff6cc450"
+                    android:shadowDy="-10"
+                    android:shadowRadius="15"
+                    android:fontFamily="cursive"
+                    android:text="Edit"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="30sp"
+                    android:textStyle="bold|italic"
+                    />
+
+                <Button
+                    android:id="@+id/save"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#ff6cc450"
+                    android:shadowDy="-10"
+                    android:shadowRadius="15"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_centerHorizontal="false"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/darker_gray"
+                    android:fontFamily="cursive"
+                    android:text="Save"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="30sp"
+                    android:textStyle="bold|italic"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="11dp"
+            android:layout_marginEnd="98dp"
+            android:layout_marginRight="98dp"
+            android:clickable="true"
+            android:enabled="false"
+            android:visibility="gone"
+            app:backgroundTint="@android:color/darker_gray"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/user_img" />
+
+
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>
