@@ -1,3 +1,6 @@
+/**
+ * This file is made to handle all the processes in the second page(activity) of application
+ */
 package com.example.shweta.cricworld;
 
 import android.content.Intent;
@@ -10,7 +13,6 @@ import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -23,32 +25,40 @@ import java.io.ByteArrayOutputStream;
 import static com.example.shweta.cricworld.R.id.imageView;
 
 public class MainActivity extends AppCompatActivity {
-
-    SharedPreferences spref;   //declaring shared preference for saving data
-    SharedPreferences.Editor ed;
-    Button mb,sv;
-    EditText tm, cp,co,tst,od,t2;
+/*
+ This class provides methods and variables for MainActivity i.e the main content of applocation
+ */
+    private SharedPreferences spref;   //declaring shared preference for saving data
+    private SharedPreferences.Editor ed;
+    private Button mEditButton;
+    private Button mSaveButton;
+    private EditText team_name;
+    private EditText mCaptain;
+    private EditText mCoach;
+    private EditText mTestRank;
+    private EditText mOdiRank;
+    private EditText mT20Rank;
+    private ImageView mImgView;
+    private FloatingActionButton ac;
     private static final int SELECT_PICTURE=100;   //variale used for uplaoding image
-    ImageView imgView;
-    FloatingActionButton ac;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        spref= getApplicationContext().getSharedPreferences("mypref",0);  //gettiing shared preference
-        ed= spref.edit();                                               //making editor
+        spref = getApplicationContext().getSharedPreferences("mypref",0);  //gettiing shared preference
+        ed = spref.edit();                                               //making editor
         setContentView(R.layout.activity_main);
-        mb= (Button)findViewById(R.id.edit);
-        sv= (Button)findViewById(R.id.save);
-        ac= (FloatingActionButton)findViewById(R.id.action);
-        tm= (EditText)findViewById(R.id.team);
-        cp= (EditText)findViewById(R.id.cap);
-        co= (EditText)findViewById(R.id.coach);
-        tst= (EditText)findViewById(R.id.tst);
-        od= (EditText)findViewById(R.id.odi);
-        t2= (EditText)findViewById(R.id.T20);
-        imgView=(ImageView)findViewById(imageView);
+        mEditButton = (Button)findViewById(R.id.edit);
+        mSaveButton = (Button)findViewById(R.id.save);
+        ac = (FloatingActionButton)findViewById(R.id.action);
+        team_name = (EditText)findViewById(R.id.team);
+        mCaptain = (EditText)findViewById(R.id.cap);
+        mCoach = (EditText)findViewById(R.id.coach);
+        mTestRank = (EditText)findViewById(R.id.tst);
+        mOdiRank = (EditText)findViewById(R.id.odi);
+        mT20Rank = (EditText)findViewById(R.id.T20);
+        mImgView =(ImageView)findViewById(imageView);
         changeTintcolor();                          //for changing tint color
 
         try
@@ -57,50 +67,72 @@ public class MainActivity extends AppCompatActivity {
         }
         catch(Exception e){}
 
-        mb.setOnClickListener(new View.OnClickListener()        //listener for edit button click
+        mEditButton.setOnClickListener(new View.OnClickListener()        //listener for edit button click
         {
             public void onClick(View view)
             {
-                tm.setEnabled(true);                    //enabling text fields
-                cp.setEnabled(true);
-                co.setEnabled(true);
-                tst.setEnabled(true);
-                od.setEnabled(true);
-                t2.setEnabled(true);
-                ((EditText)findViewById(R.id.team)).getBackground().setColorFilter(getResources().getColor(R.color.background_light), PorterDuff.Mode.SRC_ATOP);
-                ((EditText)findViewById(R.id.cap)).getBackground().setColorFilter(getResources().getColor(R.color.background_light), PorterDuff.Mode.SRC_ATOP);
-                ((EditText)findViewById(R.id.coach)).getBackground().setColorFilter(getResources().getColor(R.color.background_light), PorterDuff.Mode.SRC_ATOP);
-                ((EditText)findViewById(R.id.tst)).getBackground().setColorFilter(getResources().getColor(R.color.background_light), PorterDuff.Mode.SRC_ATOP);
-                ((EditText)findViewById(R.id.odi)).getBackground().setColorFilter(getResources().getColor(R.color.background_light), PorterDuff.Mode.SRC_ATOP);
-                ((EditText)findViewById(R.id.T20)).getBackground().setColorFilter(getResources().getColor(R.color.background_light), PorterDuff.Mode.SRC_ATOP);
-                mb.setVisibility(View.GONE);
-                sv.setVisibility(View.VISIBLE);
+                team_name.setEnabled(true);                    //enabling text fields
+                mCaptain.setEnabled(true);
+                mCoach.setEnabled(true);
+                mTestRank.setEnabled(true);
+                mOdiRank.setEnabled(true);
+                mT20Rank.setEnabled(true);
+                ((EditText)findViewById(R.id.team)).getBackground().
+                        setColorFilter(getResources().getColor(R.color.background_light),
+                                PorterDuff.Mode.SRC_ATOP);
+                ((EditText)findViewById(R.id.cap)).getBackground()
+                        .setColorFilter(getResources().getColor(R.color.background_light),
+                                PorterDuff.Mode.SRC_ATOP);
+                ((EditText)findViewById(R.id.coach)).getBackground()
+                        .setColorFilter(getResources().getColor(R.color.background_light),
+                                PorterDuff.Mode.SRC_ATOP);
+                ((EditText)findViewById(R.id.tst)).getBackground()
+                        .setColorFilter(getResources().getColor(R.color.background_light),
+                                PorterDuff.Mode.SRC_ATOP);
+                ((EditText)findViewById(R.id.odi)).getBackground()
+                        .setColorFilter(getResources().getColor(R.color.background_light),
+                                PorterDuff.Mode.SRC_ATOP);
+                ((EditText)findViewById(R.id.T20)).getBackground()
+                        .setColorFilter(getResources().getColor(R.color.background_light),
+                                PorterDuff.Mode.SRC_ATOP);
+                mEditButton.setVisibility(View.GONE);
+                mSaveButton.setVisibility(View.VISIBLE);
                 ac.setVisibility(View.VISIBLE);
             }
         });
 
-        sv.setOnClickListener(new View.OnClickListener()            //listener for save button click
+        mSaveButton.setOnClickListener(new View.OnClickListener()            //listener for save button click
         {
             public void onClick(View view)
             {
-                ed.putString("team_name", ((EditText)findViewById(R.id.team)).getText().toString());        //saving data in shared preference
-                ed.putString("Captain", ((EditText)findViewById(R.id.cap)).getText().toString());
-                ed.putString("Coach",((EditText)findViewById(R.id.coach)).getText().toString());
-                ed.putString("TestRank",((EditText)findViewById(R.id.tst)).getText().toString());
-                ed.putString("OdiRank",((EditText)findViewById(R.id.odi)).getText().toString());
-                ed.putString("T20Rank",((EditText)findViewById(R.id.T20)).getText().toString());
+                //saving data in shared preference
+                ed.putString("team_name", ((EditText)findViewById(R.id.team))
+                        .getText().toString());
+                ed.putString("Captain", ((EditText)findViewById(R.id.cap))
+                        .getText().toString());
+                ed.putString("Coach",((EditText)findViewById(R.id.coach))
+                        .getText().toString());
+                ed.putString("TestRank",((EditText)findViewById(R.id.tst))
+                        .getText().toString());
+                ed.putString("OdiRank",((EditText)findViewById(R.id.odi))
+                        .getText().toString());
+                ed.putString("T20Rank",((EditText)findViewById(R.id.T20))
+                        .getText().toString());
 
-                Bitmap bitImg = ((BitmapDrawable)imgView.getDrawable()).getBitmap();        //converting image in bitmap
-                ed.putString("imageP", encodeTobase64(bitImg));                         // saving encoded image in shared preference
+                //converting image in bitmap
+                Bitmap bitImg = ((BitmapDrawable) mImgView.getDrawable()).getBitmap();
+
+                // saving encoded image in shared preference
+                ed.putString("imageP", encodeTobase64(bitImg));
                 ed.commit();
-                tm.setEnabled(false);
-                cp.setEnabled(false);
-                co.setEnabled(false);
-                tst.setEnabled(false);
-                od.setEnabled(false);
-                t2.setEnabled(false);
-                sv.setVisibility(View.GONE);
-                mb.setVisibility(View.VISIBLE);
+                team_name.setEnabled(false);
+                mCaptain.setEnabled(false);
+                mCoach.setEnabled(false);
+                mTestRank.setEnabled(false);
+                mOdiRank.setEnabled(false);
+                mT20Rank.setEnabled(false);
+                mSaveButton.setVisibility(View.GONE);
+                mEditButton.setVisibility(View.VISIBLE);
                 ac.setVisibility(View.GONE);
                 changeTintcolor();
 
@@ -121,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
         immage.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] b = baos.toByteArray();
         String imageEncoded = Base64.encodeToString(b, Base64.DEFAULT);
-
         Log.d("Image Log:", imageEncoded);
         return imageEncoded;
     }  //function to encode bitmap image
@@ -130,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         byte[] decodedByte = Base64.decode(imageP, 0);
         return BitmapFactory
                 .decodeByteArray(decodedByte, 0, decodedByte.length);
-    }           //function to decode image
+    }            //function to decode image
 
     private void openImg() {
         Intent intent = new Intent();
@@ -146,31 +177,43 @@ public class MainActivity extends AppCompatActivity {
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // Set the image in ImageView
-                    imgView.setImageURI(selectedImageUri);
+                    mImgView.setImageURI(selectedImageUri);
                 }
             }
         }
     }       //for uploading image from device
 
     private void changeTintcolor() {
-        ((EditText)findViewById(R.id.team)).getBackground().setColorFilter(getResources().getColor(R.color.holo_blue_dark), PorterDuff.Mode.SRC_ATOP);
-        ((EditText)findViewById(R.id.cap)).getBackground().setColorFilter(getResources().getColor(R.color.holo_blue_dark), PorterDuff.Mode.SRC_ATOP);
-        ((EditText)findViewById(R.id.coach)).getBackground().setColorFilter(getResources().getColor(R.color.holo_blue_dark), PorterDuff.Mode.SRC_ATOP);
-        ((EditText)findViewById(R.id.tst)).getBackground().setColorFilter(getResources().getColor(R.color.holo_blue_dark), PorterDuff.Mode.SRC_ATOP);
-        ((EditText)findViewById(R.id.odi)).getBackground().setColorFilter(getResources().getColor(R.color.holo_blue_dark), PorterDuff.Mode.SRC_ATOP);
-        ((EditText)findViewById(R.id.T20)).getBackground().setColorFilter(getResources().getColor(R.color.holo_blue_dark), PorterDuff.Mode.SRC_ATOP);
+        ((EditText)findViewById(R.id.team)).getBackground()
+                .setColorFilter(getResources().getColor(R.color.holo_blue_dark),
+                        PorterDuff.Mode.SRC_ATOP);
+        ((EditText)findViewById(R.id.cap)).getBackground()
+                .setColorFilter(getResources().getColor(R.color.holo_blue_dark),
+                        PorterDuff.Mode.SRC_ATOP);
+        ((EditText)findViewById(R.id.coach)).getBackground()
+                .setColorFilter(getResources().getColor(R.color.holo_blue_dark),
+                        PorterDuff.Mode.SRC_ATOP);
+        ((EditText)findViewById(R.id.tst)).getBackground()
+                .setColorFilter(getResources().getColor(R.color.holo_blue_dark),
+                        PorterDuff.Mode.SRC_ATOP);
+        ((EditText)findViewById(R.id.odi)).getBackground()
+                .setColorFilter(getResources().getColor(R.color.holo_blue_dark),
+                        PorterDuff.Mode.SRC_ATOP);
+        ((EditText)findViewById(R.id.T20)).getBackground()
+                .setColorFilter(getResources().getColor(R.color.holo_blue_dark),
+                        PorterDuff.Mode.SRC_ATOP);
     }
 
     private void showdata() {
         Log.d("check data",spref.getString("team_name",""));
-        tm.setText(spref.getString("team_name",""));
-        cp.setText(spref.getString("Captain",""));
-        co.setText(spref.getString("Coach",""));
-        tst.setText(spref.getString("TestRank",""));
-        od.setText(spref.getString("OdiRank",""));
-        t2.setText(spref.getString("T20Rank",""));
+        team_name.setText(spref.getString("team_name",""));
+        mCaptain.setText(spref.getString("Captain",""));
+        mCoach.setText(spref.getString("Coach",""));
+        mTestRank.setText(spref.getString("TestRank",""));
+        mOdiRank.setText(spref.getString("OdiRank",""));
+        mT20Rank.setText(spref.getString("T20Rank",""));
         Bitmap bp= decodeBase64(spref.getString("imageP",""));
-        imgView.setImageBitmap(bp);
+        mImgView.setImageBitmap(bp);
     }
 
 }
